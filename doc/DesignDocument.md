@@ -14,7 +14,8 @@ The <code>block</code> class contains the spite for the building blocks. This wi
 
 Sketches:
 =========
-
+Below are the sketches of the design with some function descriptions.
+![alt img](https://github.com/douweknook/TowerBuild/blob/master/doc/TowerBuildDesign.jpg)
 
 Frameworks:
 ==========
