@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
+#import "TowerBuildScene.h"
 
 @implementation ViewController
 
@@ -19,6 +19,7 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    skView.showsDrawCount = YES;
     
     // Create and configure the scene.
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
@@ -26,11 +27,6 @@
     
     // Present the scene.
     [skView presentScene:scene];
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations

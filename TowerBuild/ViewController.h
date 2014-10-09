@@ -10,5 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @end
