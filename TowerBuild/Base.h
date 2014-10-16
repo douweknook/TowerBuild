@@ -6,8 +6,8 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-@interface Base : NSObject
+@interface Base : SKSpriteNode
 
 @end

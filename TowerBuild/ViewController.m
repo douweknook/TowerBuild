@@ -9,12 +9,13 @@
 #import "ViewController.h"
 #import "TowerBuildScene.h"
 
-@implementation ViewController
+@implementation ViewController{
+    TowerBuildScene *scene;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -22,21 +23,14 @@
     skView.showsDrawCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
+    scene = [TowerBuildScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
     [skView presentScene:scene];
+    
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
+
+
 
 - (void)didReceiveMemoryWarning
 {

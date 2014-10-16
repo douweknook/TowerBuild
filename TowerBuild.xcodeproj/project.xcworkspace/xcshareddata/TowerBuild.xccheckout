@@ -10,29 +10,29 @@
 	<string>TowerBuild</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>7749C4EC-7CF3-4305-B714-BF2F4D7A2D33</key>
+		<key>5F1C9836C8B6FB41B66FA419AC9158C1C5267C34</key>
 		<string>https://github.com/douweknook/TowerBuild.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TowerBuild.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>7749C4EC-7CF3-4305-B714-BF2F4D7A2D33</key>
+		<key>5F1C9836C8B6FB41B66FA419AC9158C1C5267C34</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/douweknook/TowerBuild.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7749C4EC-7CF3-4305-B714-BF2F4D7A2D33</string>
+	<string>5F1C9836C8B6FB41B66FA419AC9158C1C5267C34</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7749C4EC-7CF3-4305-B714-BF2F4D7A2D33</string>
+			<string>5F1C9836C8B6FB41B66FA419AC9158C1C5267C34</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TowerBuild</string>
 		</dict>

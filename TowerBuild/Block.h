@@ -6,8 +6,10 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-@interface Block : NSObject
+@interface Block : SKSpriteNode
+
+-(id)initWithSize:(CGSize)size;
 
 @end

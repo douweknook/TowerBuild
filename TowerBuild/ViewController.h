@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import "TowerBuildScene.h"
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *menuButton;
-@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 @end

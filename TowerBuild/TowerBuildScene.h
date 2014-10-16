@@ -1,5 +1,5 @@
 //
-//  MyScene.h
+//  TowerBuildScene.h
 //  TowerBuild
 //
 
@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Block.h"
 
-@interface MyScene : SKScene
+@interface TowerBuildScene : SKScene
 
 @end

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B11233A719E540F400A1812D /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = B11233A619E540F400A1812D /* Block.m */; };
 		B11233AA19E5410A00A1812D /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = B11233A919E5410A00A1812D /* Base.m */; };
-		B1217AD519E3F7EA00509B3B /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = B1217AD419E3F7EA00509B3B /* block.png */; };
-		B1217AD719E4152C00509B3B /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = B1217AD619E4152C00509B3B /* base.png */; };
 		B1A6EB7F19E2B31D00C66F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */; };
 		B1A6EB8119E2B31D00C66F49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */; };
 		B1A6EB8319E2B31D00C66F49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB8219E2B31D00C66F49 /* UIKit.framework */; };
@@ -20,9 +18,8 @@
 		B1A6EB9119E2B31D00C66F49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6EB9019E2B31D00C66F49 /* AppDelegate.m */; };
 		B1A6EB9419E2B31D00C66F49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A6EB9219E2B31D00C66F49 /* Main.storyboard */; };
 		B1A6EB9719E2B31D00C66F49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6EB9619E2B31D00C66F49 /* ViewController.m */; };
-		B1A6EB9A19E2B31D00C66F49 /* TowerBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6EB9919E2B31D00C66F49 /* TowerBuild.m */; };
+		B1A6EB9A19E2B31D00C66F49 /* TowerBuildScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A6EB9919E2B31D00C66F49 /* TowerBuildScene.m */; };
 		B1A6EB9E19E2B31D00C66F49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A6EB9D19E2B31D00C66F49 /* Images.xcassets */; };
-		B1A6EBA519E2B31E00C66F49 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EBA419E2B31E00C66F49 /* XCTest.framework */; };
 		B1A6EBA619E2B31E00C66F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */; };
 		B1A6EBA719E2B31E00C66F49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB8219E2B31D00C66F49 /* UIKit.framework */; };
 		B1A6EBAF19E2B31E00C66F49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1A6EBAD19E2B31E00C66F49 /* InfoPlist.strings */; };
@@ -44,8 +41,6 @@
 		B11233A619E540F400A1812D /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
 		B11233A819E5410A00A1812D /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		B11233A919E5410A00A1812D /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = "<group>"; };
-		B1217AD419E3F7EA00509B3B /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = block.png; path = ../../../Desktop/block.png; sourceTree = "<group>"; };
-		B1217AD619E4152C00509B3B /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = base.png; path = ../../../Desktop/base.png; sourceTree = "<group>"; };
 		B1A6EB7B19E2B31D00C66F49 /* TowerBuild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerBuild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,13 +56,13 @@
 		B1A6EB9519E2B31D00C66F49 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B1A6EB9619E2B31D00C66F49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B1A6EB9819E2B31D00C66F49 /* TowerBuildScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowerBuildScene.h; sourceTree = "<group>"; };
-		B1A6EB9919E2B31D00C66F49 /* TowerBuild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowerBuild.m; sourceTree = "<group>"; };
+		B1A6EB9919E2B31D00C66F49 /* TowerBuildScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowerBuildScene.m; sourceTree = "<group>"; };
 		B1A6EB9D19E2B31D00C66F49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B1A6EBA319E2B31E00C66F49 /* TowerBuildTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TowerBuildTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1A6EBA419E2B31E00C66F49 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B1A6EBAC19E2B31E00C66F49 /* TowerBuildTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TowerBuildTests-Info.plist"; sourceTree = "<group>"; };
 		B1A6EBAE19E2B31E00C66F49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1A6EBB019E2B31E00C66F49 /* TowerBuildTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowerBuildTests.m; sourceTree = "<group>"; };
+		B1C7E92E19ED297A0062E117 /* SpriteCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteCategories.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A6EBA519E2B31E00C66F49 /* XCTest.framework in Frameworks */,
 				B1A6EBA719E2B31E00C66F49 /* UIKit.framework in Frameworks */,
 				B1A6EBA619E2B31E00C66F49 /* Foundation.framework in Frameworks */,
 			);
@@ -99,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				B1A6EB9D19E2B31D00C66F49 /* Images.xcassets */,
-				B1217AD419E3F7EA00509B3B /* block.png */,
-				B1217AD619E4152C00509B3B /* base.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -108,6 +100,7 @@
 		B11233A419E540E000A1812D /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B1C7E92E19ED297A0062E117 /* SpriteCategories.h */,
 				B11233A819E5410A00A1812D /* Base.h */,
 				B11233A919E5410A00A1812D /* Base.m */,
 				B11233A519E540F400A1812D /* Block.h */,
@@ -142,7 +135,6 @@
 				B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */,
 				B1A6EB8219E2B31D00C66F49 /* UIKit.framework */,
 				B1A6EB8419E2B31D00C66F49 /* SpriteKit.framework */,
-				B1A6EBA419E2B31E00C66F49 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -156,7 +148,7 @@
 				B1A6EB9519E2B31D00C66F49 /* ViewController.h */,
 				B1A6EB9619E2B31D00C66F49 /* ViewController.m */,
 				B1A6EB9819E2B31D00C66F49 /* TowerBuildScene.h */,
-				B1A6EB9919E2B31D00C66F49 /* TowerBuild.m */,
+				B1A6EB9919E2B31D00C66F49 /* TowerBuildScene.m */,
 				B11233A419E540E000A1812D /* Sprites */,
 				B1A6EB8719E2B31D00C66F49 /* Supporting Files */,
 			);
@@ -268,8 +260,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1217AD519E3F7EA00509B3B /* block.png in Resources */,
-				B1217AD719E4152C00509B3B /* base.png in Resources */,
 				B1A6EB8B19E2B31D00C66F49 /* InfoPlist.strings in Resources */,
 				B1A6EB9E19E2B31D00C66F49 /* Images.xcassets in Resources */,
 				B1A6EB9419E2B31D00C66F49 /* Main.storyboard in Resources */,
@@ -291,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A6EB9A19E2B31D00C66F49 /* TowerBuild.m in Sources */,
+				B1A6EB9A19E2B31D00C66F49 /* TowerBuildScene.m in Sources */,
 				B1A6EB9719E2B31D00C66F49 /* ViewController.m in Sources */,
 				B1A6EB9119E2B31D00C66F49 /* AppDelegate.m in Sources */,
 				B11233A719E540F400A1812D /* Block.m in Sources */,

@@ -6,8 +6,10 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-@interface Sprite : NSObject
+@interface Sprite : SKSpriteNode
+
+-(id)initWithSpriteImageName:(NSString*)name;
 
 @end
