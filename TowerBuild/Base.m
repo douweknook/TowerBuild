@@ -12,6 +12,7 @@
 @implementation Base
 
 - (id)init {
+    // Set size and color for base sprite
     if (self = [super init]) {
         self.size = CGSizeMake(120, 50);
         self.color = [SKColor redColor];

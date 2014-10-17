@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B11233A719E540F400A1812D /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = B11233A619E540F400A1812D /* Block.m */; };
 		B11233AA19E5410A00A1812D /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = B11233A919E5410A00A1812D /* Base.m */; };
+		B13628E319F08A3500C4B7CF /* InterfaceElements.m in Sources */ = {isa = PBXBuildFile; fileRef = B13628E219F08A3500C4B7CF /* InterfaceElements.m */; };
 		B1A6EB7F19E2B31D00C66F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */; };
 		B1A6EB8119E2B31D00C66F49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */; };
 		B1A6EB8319E2B31D00C66F49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6EB8219E2B31D00C66F49 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		B11233A619E540F400A1812D /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
 		B11233A819E5410A00A1812D /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		B11233A919E5410A00A1812D /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = "<group>"; };
+		B13628E119F08A3500C4B7CF /* InterfaceElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceElements.h; sourceTree = "<group>"; };
+		B13628E219F08A3500C4B7CF /* InterfaceElements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceElements.m; sourceTree = "<group>"; };
 		B1A6EB7B19E2B31D00C66F49 /* TowerBuild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerBuild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,7 +65,6 @@
 		B1A6EBAC19E2B31E00C66F49 /* TowerBuildTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TowerBuildTests-Info.plist"; sourceTree = "<group>"; };
 		B1A6EBAE19E2B31E00C66F49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1A6EBB019E2B31E00C66F49 /* TowerBuildTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowerBuildTests.m; sourceTree = "<group>"; };
-		B1C7E92E19ED297A0062E117 /* SpriteCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteCategories.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +91,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B11233A319E5409800A1812D /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				B1A6EB9D19E2B31D00C66F49 /* Images.xcassets */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
 		B11233A419E540E000A1812D /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				B1C7E92E19ED297A0062E117 /* SpriteCategories.h */,
 				B11233A819E5410A00A1812D /* Base.h */,
 				B11233A919E5410A00A1812D /* Base.m */,
 				B11233A519E540F400A1812D /* Block.h */,
@@ -131,10 +124,10 @@
 		B1A6EB7D19E2B31D00C66F49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */,
 				B1A6EB8019E2B31D00C66F49 /* CoreGraphics.framework */,
-				B1A6EB8219E2B31D00C66F49 /* UIKit.framework */,
+				B1A6EB7E19E2B31D00C66F49 /* Foundation.framework */,
 				B1A6EB8419E2B31D00C66F49 /* SpriteKit.framework */,
+				B1A6EB8219E2B31D00C66F49 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,11 +137,13 @@
 			children = (
 				B1A6EB8F19E2B31D00C66F49 /* AppDelegate.h */,
 				B1A6EB9019E2B31D00C66F49 /* AppDelegate.m */,
+				B13628E119F08A3500C4B7CF /* InterfaceElements.h */,
+				B13628E219F08A3500C4B7CF /* InterfaceElements.m */,
 				B1A6EB9219E2B31D00C66F49 /* Main.storyboard */,
-				B1A6EB9519E2B31D00C66F49 /* ViewController.h */,
-				B1A6EB9619E2B31D00C66F49 /* ViewController.m */,
 				B1A6EB9819E2B31D00C66F49 /* TowerBuildScene.h */,
 				B1A6EB9919E2B31D00C66F49 /* TowerBuildScene.m */,
+				B1A6EB9519E2B31D00C66F49 /* ViewController.h */,
+				B1A6EB9619E2B31D00C66F49 /* ViewController.m */,
 				B11233A419E540E000A1812D /* Sprites */,
 				B1A6EB8719E2B31D00C66F49 /* Supporting Files */,
 			);
@@ -158,10 +153,10 @@
 		B1A6EB8719E2B31D00C66F49 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B11233A319E5409800A1812D /* Images */,
-				B1A6EB8819E2B31D00C66F49 /* TowerBuild-Info.plist */,
+				B1A6EB9D19E2B31D00C66F49 /* Images.xcassets */,
 				B1A6EB8919E2B31D00C66F49 /* InfoPlist.strings */,
 				B1A6EB8C19E2B31D00C66F49 /* main.m */,
+				B1A6EB8819E2B31D00C66F49 /* TowerBuild-Info.plist */,
 				B1A6EB8E19E2B31D00C66F49 /* TowerBuild-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -179,8 +174,8 @@
 		B1A6EBAB19E2B31E00C66F49 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B1A6EBAC19E2B31E00C66F49 /* TowerBuildTests-Info.plist */,
 				B1A6EBAD19E2B31E00C66F49 /* InfoPlist.strings */,
+				B1A6EBAC19E2B31E00C66F49 /* TowerBuildTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,6 +281,7 @@
 				B1A6EB9119E2B31D00C66F49 /* AppDelegate.m in Sources */,
 				B11233A719E540F400A1812D /* Block.m in Sources */,
 				B11233AA19E5410A00A1812D /* Base.m in Sources */,
+				B13628E319F08A3500C4B7CF /* InterfaceElements.m in Sources */,
 				B1A6EB8D19E2B31D00C66F49 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
