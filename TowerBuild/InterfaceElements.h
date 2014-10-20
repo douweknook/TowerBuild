@@ -2,8 +2,12 @@
 //  InterfaceElements.h
 //  TowerBuild
 //
-//  Created by Douwe Knook on 17-10-14.
+//  Created by Douwe Knook.
+//  Copyright (c) October 2014. All rights reserved.
 //
+//  University of Amsterdam
+//  Minor Programming
+//  Student's Choice Project - Tower Build Game
 //
 
 #import <Foundation/Foundation.h>
@@ -11,10 +15,17 @@
 
 @interface InterfaceElements : NSObject
 
--(UIButton *)createPauseButtonWithFont:(UIFont *)font;
--(UIButton *)createMenuButtonWithFont:(UIFont *)font;
--(UILabel *)createScoreLabelWithFont:(UIFont *)font;
--(UILabel *)createGameOverLabelWithFont:(UIFont *)font;
--(UIButton *)createPlayAgainButtonWithFont:(UIFont *)font;
+-(UIButton *)createPauseButton;
+-(UIButton *)createMenuButton;
+-(UILabel *)createScoreLabel;
+-(UILabel *)createGameOverLabel;
+-(UIButton *)createPlayAgainButton;
+-(UILabel *)createBestScoreLabel;
+-(UILabel *)createNewHighscoreLabel;
+
+-(UIButton *)createResumeButton;
+-(UIButton *)createNewGameButton;
+-(UIButton *)createHighscoresButton;
+-(UIButton *)createShareButton;
 
 @end

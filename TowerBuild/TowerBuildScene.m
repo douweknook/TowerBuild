@@ -2,14 +2,15 @@
 //  TowerBuildScene.m
 //  TowerBuild
 //
-//  Created by Douwe Knook on 06-10-14.
-//  Copyright (c) 2014 __MyCompanyName__. All rights reserved.
+//  Created by Douwe Knook.
+//  Copyright (c) October 2014. All rights reserved.
+//
+//  University of Amsterdam
+//  Minor Programming
+//  Student's Choice Project - Tower Build Game
 //
 
-#import "ViewController.h"
 #import "TowerBuildScene.h"
-#import "Base.h"
-#import "Block.h"
 
 @interface TowerBuildScene () {
     // Set global variables
@@ -19,7 +20,7 @@
     CGSize newSize;
     float blockStartPosition;
     int amountOfBlocks;
-    int score;
+    NSUInteger score;
     int boundLeft;
     int boundRight;
     int nodesChecked;
@@ -62,14 +63,22 @@
     return self;
 }
 
+#pragma mark - User interaction
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     // Upon touch, place block
     [self placeBlock];
     // If game over, remove block and show game over screen
     if ([self checkGameOver] == TRUE) {
+        NSUInteger highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"highscore"];
+        if ((NSUInteger)score > highscore) {
+            // New personal highscore
+            [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"highscore"];
+            [self.interfaceDelegate showNewBestHighscoreLabel];
+        }
         [_block removeFromParent];
+        [self.interfaceDelegate showBestScore:highscore];
         [self.interfaceDelegate showGameOver];
-        
     }
     // Else, update score, move up (if necessary) and create next block
     else {
@@ -79,6 +88,8 @@
         [self move:_block];
     }
 }
+
+#pragma mark - Gameplay methods
 
 -(void)moveSceneUp {
     // After reaching middle of screen, keep currently moving block in middle by moving all sprites down
@@ -160,6 +171,8 @@
     [worldNode addChild:_block];
     return _block;
 }
+
+#pragma mark - Actions
 
 -(BOOL)checkGameOver {
     // If block has 0 nodes, block missed target. Game over

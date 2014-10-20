@@ -6,8 +6,8 @@
 //
 //
 
-#import "Block.h"
 #import <SpriteKit/SpriteKit.h>
+#import "Block.h"
 
 @implementation Block
 
@@ -19,7 +19,7 @@ int colorPicker = 0;
         self.size = size;
         CGSize blockPartSize = CGSizeMake(1, self.size.height);
         UIColor *blockColor = [self pickColor];
-        // Block sprite consists of smaller sprite nodes of 1 pixel width each
+        // Block sprite consists of smaller sprite nodes of i pixel width each
         for (int i = 0; i < self.size.width; i++) {
             SKSpriteNode *blockPart = [SKSpriteNode spriteNodeWithColor:blockColor size:blockPartSize];
             blockPart.position = CGPointMake(i, 0);

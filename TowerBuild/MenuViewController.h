@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MenuViewController.h
 //  TowerBuild
 //
 //  Created by Douwe Knook.
@@ -11,15 +11,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
-#import "TowerBuildScene.h"
 #import "InterfaceElements.h"
-#import "MenuViewController.h"
 
-
-
-@interface ViewController : UIViewController <TowerBuildSceneInterfaceDelegate>
-
--(void)setupNewGameScene;
+@interface MenuViewController : UIViewController <UIActionSheetDelegate>
 
 @end
