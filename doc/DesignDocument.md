@@ -1,16 +1,26 @@
 Design Document
 ===============
-This document contains the technical implementation of my Student's Choice project: a game of Tower Build.
+This document contains the technical implementation of my Student's Choice project: a game called Tower Build.
+
+Flow
+===============
+The application will be build using the Game template and SpriteKit framework. It will contain several sprites, a gameplay scene and two viewcontrollers (gameplay viewcontroller and menu viewcontroller). The Interface elements will also be put into a seperate class. This devision constitutes the flow of the application as depicted below.
+
+![alt img](https://github.com/douweknook/TowerBuild/blob/master/doc/TowerBuildDesignFlow.jpg)
 
 Classes & Public Methods:
 ===============
-The <code>ViewController</code> class will contain only the buttons used to access the game menu (<code>menuButton</code>) and to pause the game (<code>pauseButton</code>). The menu, consisting of the highscores and a new game option, will also be implemented in the <code>ViewController</code> class. 
+The <code>ViewController</code> class contains the interface elements used to communicate between the application and the user. It imports the design of the interface elements from the <code>InterfaceElements</code> class. This class also handles communication with the <code>TowerBuildScene</code> and <code>MenuViewController</code> class. In order to do this it requires both a <code>TowerBuildSceneInterfaceDelegate</code> and a <code>UIActionSheetDelegate</code> protocol. It's only public method is <code>setupNewGameScene<code>, which is used by the <code>MenuViewController</code> to start a new game.
 
-The <code>TowerBuildScene</code> class will be displaying the actual gameplay. It will set the game scene the user sees and registers the user's interaction with the application. It imports the sprite classes <code>block</code> and <code>base</code>.
+The <code>TowerBuildScene</code> implements and displays the actual gameplay. It's public methods consists of the implementation of the <code>TowerBuildSceneInterfaceDelegate</code> protocol and a <code>pause</code> and <code>resume</code> method which pauses and resumes the gameplay. This class also imports the sprite classes <code>block</code> and <code>base</code>.
 
-The <code>base</code> class is the sprite that forms the base of the tower. It will contain a method to check for collisions with the <code>block</code> sprite upon a user tapping the screen.
+The <code>base</code> class is the sprite class that returns the base of the tower. It does not implement any public methods.
 
-The <code>block</code> class contains the spite for the building blocks. This will implement a method that makes it move across the screen, but still remains in the <code>TowerBuildScene</code> so it won't go off screen. Also it will implement a method to listen for a tap from the user to be released and fall down towards the base.
+The <code>block</code> class is the sprite class the returns the building blocks for the tower. It implements the public method <code>initWithSize:</code> which creates a block sprite of the size sent with the method.
+
+In the <code>MenuViewController</code> class the menu interface is implemented. This class does not contain any public methods. It does however import the <code>UIActionSheetDelegate</code> protocol.
+
+The <code>InterfaceElements</code> class contains the specifications for all the interface elements (UIButtons and UILabels). It contains the following public methods: <code>createPauseButton, createMenuButton, createScoreLabel, createGameOverLabel, createPlayAgainButton, createBestScoreLabel, createNewHighscoreLabel, createShareScoreButton, createResumeButton, createNewGameButton, createSettingsButton, createShareButton, createEasyButton, createMediumButton, createHardButton</code>
 
 Sketches:
 =========
@@ -19,4 +29,4 @@ Below are the sketches of the design with some function descriptions.
 
 Frameworks:
 ==========
-The only frameworks used will be the frameworks standard included in the Sprite Kit Application upon which this application is build. These are the follwing: Foundation framework, CoreGraphics framework, UIKIT framework, SpriteKit framework and XCTest framework. No additional APIs will be used.
+This project will only use standard frameworks containe in XCode. First of all it will use the frameworks standard included in the Sprite Kit Application upon which this application is build. These are the following: Foundation framework, CoreGraphics framework, UIKIT framework, SpriteKit framework and XCTest framework. On top of this the Social framework will be included to allow users to share information about the game on Twitter and Facebook. No additional APIs will be used.
