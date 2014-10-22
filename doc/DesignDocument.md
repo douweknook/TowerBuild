@@ -10,7 +10,7 @@ The application will be build using the Game template and SpriteKit framework. I
 
 Classes & Public Methods:
 ===============
-The <code>ViewController</code> class contains the interface elements used to communicate between the application and the user. It imports the design of the interface elements from the <code>InterfaceElements</code> class. This class also handles communication with the <code>TowerBuildScene</code> and <code>MenuViewController</code> class. In order to do this it requires both a <code>TowerBuildSceneInterfaceDelegate</code> and a <code>UIActionSheetDelegate</code> protocol. It's only public method is <code>setupNewGameScene<code>, which is used by the <code>MenuViewController</code> to start a new game.
+The <code>ViewController</code> class contains the interface elements used to communicate between the application and the user. It imports the design of the interface elements from the <code>InterfaceElements</code> class. This class also handles communication with the <code>TowerBuildScene</code> and <code>MenuViewController</code> class. In order to do this it requires both a <code>TowerBuildSceneInterfaceDelegate</code> and a <code>UIActionSheetDelegate</code> protocol. It's only public method is <code>setupNewGameScene</code>, which is used by the <code>MenuViewController</code> to start a new game.
 
 The <code>TowerBuildScene</code> implements and displays the actual gameplay. It's public methods consists of the implementation of the <code>TowerBuildSceneInterfaceDelegate</code> protocol and a <code>pause</code> and <code>resume</code> method which pauses and resumes the gameplay. This class also imports the sprite classes <code>block</code> and <code>base</code>.
 
