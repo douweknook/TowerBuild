@@ -158,7 +158,7 @@
     [resumeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [resumeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [[resumeButton titleLabel] setFont:[self getFontMenu]];
-    [resumeButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 125)];
+    [resumeButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 150)];
     return resumeButton;
 }
 
@@ -171,7 +171,7 @@
     [newGameButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [newGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [[newGameButton titleLabel] setFont:[self getFontMenu]];
-    [newGameButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 50)];
+    [newGameButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 75)];
     return newGameButton;
 }
 
@@ -184,8 +184,18 @@
     [settingsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [[settingsButton titleLabel] setFont:[self getFontMenu]];
-    [settingsButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 25)];
+    [settingsButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2)];
     return settingsButton;
+}
+
+-(UIButton *)createAboutButton {
+    UIButton *aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+    [aboutButton setTitle:@"About" forState:UIControlStateNormal];
+    [aboutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [aboutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[aboutButton titleLabel] setFont:[self getFontMenu]];
+    [aboutButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 75)];
+    return aboutButton;
 }
 
 -(UIButton *)createShareButton {
@@ -197,7 +207,7 @@
     [shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [[shareButton titleLabel] setFont:[self getFontMenu]];
-    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 100)];
+    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
     return shareButton;
 }
 
@@ -241,6 +251,21 @@
      ];
     [hardButton setHidden:YES];
     return hardButton;
+}
+
+#pragma mark - About label
+
+-(UILabel *)createAboutLabel {
+    UILabel *aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 120)];
+    [aboutLabel setTextAlignment:NSTextAlignmentCenter];
+    [aboutLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f]];
+    [aboutLabel setTextColor:[UIColor blackColor]];
+    [aboutLabel setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+    [aboutLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    aboutLabel.numberOfLines = 0;
+    [aboutLabel setText:@"Tower Build is created by Douwe Knook as a Student's Choice Project for the App Studio course. This course is part of the Minor Programming at the University of Amsterdam."];
+    [aboutLabel setHidden:YES];
+    return aboutLabel;
 }
 
 @end

@@ -30,7 +30,10 @@
 -(UIButton *)createResumeButton;
 -(UIButton *)createNewGameButton;
 -(UIButton *)createSettingsButton;
+-(UIButton *)createAboutButton;
 -(UIButton *)createShareButton;
+
+-(UILabel *)createAboutLabel;
 
 // Settings buttons
 -(UIButton *)createEasyButton;

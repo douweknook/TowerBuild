@@ -21,15 +21,19 @@
     UIButton *resumeButton;
     UIButton *newGameButton;
     UIButton *settingsButton;
+    UIButton *aboutButton;
+    UILabel *aboutLabel;
     UIButton *shareButton;
     UIButton *easyButton;
     UIButton *mediumButton;
     UIButton *hardButton;
     NSString *difficulty;
+    CGRect screenSize;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    screenSize = [[UIScreen mainScreen] bounds];
 }
 
 -(void)loadView {
@@ -56,12 +60,21 @@
     [settingsButton addTarget:self action:@selector(settingsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:settingsButton];
     
+    // About button
+    aboutButton = [interface createAboutButton];
+    [aboutButton addTarget:self action:@selector(aboutButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:aboutButton];
+    
+    // About label
+    aboutLabel = [interface createAboutLabel];
+    [self.view addSubview:aboutLabel];
+    
     // Share button
     shareButton = [interface createShareButton];
     [shareButton addTarget:self action:@selector(shareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:shareButton];
     
-    // Settings Buttons
+    // Settings buttons
     easyButton = [interface createEasyButton];
     [easyButton addTarget:self action:@selector(difficultyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:easyButton];
@@ -93,12 +106,30 @@
 }
 
 -(void)settingsButtonTapped {
-    // When settings clicked, show settings buttons Easy, Medium, Hard.
-    CGRect screenSize = [[UIScreen mainScreen] bounds];
-    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+    // If settings folded out, fold back in
+    if (easyButton.hidden == NO || mediumButton.hidden == NO || hardButton.hidden == NO) {
+        [aboutButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 75)];
+        [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+        [easyButton setHidden:YES];
+        [mediumButton setHidden:YES];
+        [hardButton setHidden:YES];
+    }
+    // If about is folded out, fold about in and fold settings out
+    else if (aboutLabel.hidden == NO) {
+        [aboutLabel setHidden:YES];
+        [aboutButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+        [easyButton setHidden:NO];
+        [mediumButton setHidden:NO];
+        [hardButton setHidden:NO];
+    }
+    // Else fold out and show difficulty levels
+    else {
+    [aboutButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 225)];
     [easyButton setHidden:NO];
     [mediumButton setHidden:NO];
     [hardButton setHidden:NO];
+    }
 }
 
 -(void)difficultyButtonTapped:(UIButton *)button {
@@ -116,6 +147,27 @@
         [[NSUserDefaults standardUserDefaults] setObject:difficulty forKey:@"difficulty"];
     }
     [self newGameButtonTapped];
+}
+
+-(void)aboutButtonTapped {
+    // If settings folded out, fold settings in and fold about out
+    if (easyButton.hidden == NO || mediumButton.hidden == NO || hardButton.hidden == NO) {
+        [easyButton setHidden:YES];
+        [mediumButton setHidden:YES];
+        [hardButton setHidden:YES];
+        [aboutButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 75)];
+        [aboutLabel setHidden:NO];
+    }
+    // If about is folded out, fold about in
+    else if (aboutLabel.hidden == NO) {
+        [aboutLabel setHidden:YES];
+        [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+    }
+    // If about is folded in, fold out
+    else {
+        [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 225)];
+        [aboutLabel setHidden:NO];
+    }
 }
 
 -(void)shareButtonTapped {
