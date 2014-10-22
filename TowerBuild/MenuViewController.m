@@ -10,9 +10,7 @@
 //  Student's Choice Project - Tower Build Game
 //
 
-#import<Social/Social.h>
 #import "MenuViewController.h"
-#import "ViewController.h"
 
 @interface MenuViewController ()
 
@@ -22,8 +20,12 @@
     InterfaceElements *interface;
     UIButton *resumeButton;
     UIButton *newGameButton;
-    UIButton *highscoresButton;
+    UIButton *settingsButton;
     UIButton *shareButton;
+    UIButton *easyButton;
+    UIButton *mediumButton;
+    UIButton *hardButton;
+    NSString *difficulty;
 }
 
 - (void)viewDidLoad {
@@ -50,14 +52,27 @@
     [self.view addSubview:newGameButton];
     
     // Highscore button
-    highscoresButton = [interface createHighscoresButton];
-    [highscoresButton addTarget:self action:@selector(highscoresButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:highscoresButton];
+    settingsButton = [interface createSettingsButton];
+    [settingsButton addTarget:self action:@selector(settingsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:settingsButton];
     
     // Share button
     shareButton = [interface createShareButton];
     [shareButton addTarget:self action:@selector(shareButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:shareButton];
+    
+    // Settings Buttons
+    easyButton = [interface createEasyButton];
+    [easyButton addTarget:self action:@selector(difficultyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:easyButton];
+    
+    mediumButton = [interface createMediumButton];
+    [mediumButton addTarget:self action:@selector(difficultyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:mediumButton];
+    
+    hardButton = [interface createHardButton];
+    [hardButton addTarget:self action:@selector(difficultyButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:hardButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,16 +87,39 @@
 }
 
 -(void)newGameButtonTapped {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"newGame" object: nil];
+    // Connect to newGame function in ViewController class
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newGame" object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)highscoresButtonTapped {
-    // Show the user's best score.
-    // Could implement game center here..
+-(void)settingsButtonTapped {
+    // When settings clicked, show settings buttons Easy, Medium, Hard.
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 150)];
+    [easyButton setHidden:NO];
+    [mediumButton setHidden:NO];
+    [hardButton setHidden:NO];
+}
+
+-(void)difficultyButtonTapped:(UIButton *)button {
+    // Save the chosen difficulty to NSUserDefaults
+    if (button == easyButton) {
+        difficulty = @"easy";
+        [[NSUserDefaults standardUserDefaults] setObject:difficulty forKey:@"difficulty"];
+    }
+    else if (button == mediumButton) {
+        difficulty = @"medium";
+        [[NSUserDefaults standardUserDefaults] setObject:difficulty forKey:@"difficulty"];
+    }
+    else if (button == hardButton) {
+        difficulty = @"hard";
+        [[NSUserDefaults standardUserDefaults] setObject:difficulty forKey:@"difficulty"];
+    }
+    [self newGameButtonTapped];
 }
 
 -(void)shareButtonTapped {
+    // Create actionsheet with different sharing options
     UIActionSheet *sharingSheet = [[UIActionSheet alloc] initWithTitle:@"Share"
                                                               delegate:self
                                                      cancelButtonTitle:@"Cancel"
@@ -99,12 +137,14 @@
         // Twitter button pressed
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
         {
+            // Create, compose and post tweet
             SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
             [tweet setInitialText:@"Check out this Tower Build game for endless fun!"];
             [self presentViewController:tweet animated:YES completion:nil];
         }
         else
         {
+            // If unable to post, show alert message
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
                                                             message:@"Twitter integration is not available. A Twitter account must be set up on your device."
                                                            delegate:self
@@ -118,12 +158,14 @@
         // Facebook button pressed
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
         {
-            SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-            [tweet setInitialText:@"Check out this Tower Build game for endless fun!"];
-            [self presentViewController:tweet animated:YES completion:nil];
+            // Create compose and post Facebook message
+            SLComposeViewController *facebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [facebook setInitialText:@"Check out this Tower Build game for endless fun!"];
+            [self presentViewController:facebook animated:YES completion:nil];
         }
         else
         {
+            // If unable to post, show alert message
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
                                                             message:@"Facebook integration is not available. A Facebook account must be set up on your device."
                                                            delegate:self

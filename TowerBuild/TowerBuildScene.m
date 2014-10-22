@@ -21,11 +21,12 @@
     float blockStartPosition;
     int amountOfBlocks;
     NSUInteger score;
+    NSUInteger highscore;
     int boundLeft;
     int boundRight;
     int nodesChecked;
     NSUInteger nodesLeft;
-    
+    NSString *difficulty;
 }
 
 @end
@@ -36,6 +37,14 @@
     if (self = [super initWithSize:size]) {
         // Set background color
         self.backgroundColor = [SKColor whiteColor];
+        
+        // Set default difficulty to medium
+        if ([difficulty isEqualToString:nil]) {
+            difficulty = @"medium";
+        }
+        else {
+            difficulty = [[NSUserDefaults standardUserDefaults] objectForKey:@"difficulty"];
+        }
         
         // Create world node to hold all sprites
         worldNode = [SKNode node];
@@ -68,17 +77,40 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     // Upon touch, place block
     [self placeBlock];
-    // If game over, remove block and show game over screen
+    // Check if Game Over
     if ([self checkGameOver] == TRUE) {
-        NSUInteger highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"highscore"];
+        
+        // Retrieve highscore from memory
+        if ([difficulty  isEqualToString:@"easy"])
+            highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"easyHighscore"];
+        else if ([difficulty isEqualToString:@"medium"])
+            highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"mediumHighscore"];
+        else if ([difficulty isEqualToString:@"hard"])
+            highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"hardHighscore"];
+        
+        // Check if current score is higher than highscore
         if ((NSUInteger)score > highscore) {
-            // New personal highscore
-            [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"highscore"];
+            // If yes, set new highscore and show user they beat the highscore
+            if ([difficulty  isEqualToString:@"easy"])
+                [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"easyHighscore"];
+            else if ([difficulty isEqualToString:@"medium"])
+                [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"mediumHighscore"];
+            else if ([difficulty isEqualToString:@"hard"])
+                [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"hardHighscore"];
+            
             [self.interfaceDelegate showNewBestHighscoreLabel];
+            
+            [_block removeFromParent];
+            // Update interface to show Game Over and Score elements
+            [self.interfaceDelegate showBestScore:score];
+            [self.interfaceDelegate showGameOver];
         }
-        [_block removeFromParent];
-        [self.interfaceDelegate showBestScore:highscore];
-        [self.interfaceDelegate showGameOver];
+        else {
+            [_block removeFromParent];
+            // Update interface to show Game Over and Score elements
+            [self.interfaceDelegate showBestScore:highscore];
+            [self.interfaceDelegate showGameOver];
+        }
     }
     // Else, update score, move up (if necessary) and create next block
     else {
@@ -100,9 +132,19 @@
 
 -(void)move:(SKSpriteNode*)sprite {
     // Create actions for sprite to move along across screen (smaller duration is faster)
+    NSTimeInterval speed = 1.5;
+    if ([difficulty  isEqualToString:@"easy"]) {
+        speed = 2.0;
+    }
+    else if ([difficulty isEqualToString:@"medium"]) {
+        speed = 1.5;
+    }
+    else if ([difficulty isEqualToString:@"hard"]) {
+        speed = 1.0;
+    }
     CGRect screenSize = [[UIScreen mainScreen] bounds];
-    SKAction *moveRight = [SKAction moveTo:CGPointMake(screenSize.size.width - _block.size.width, sprite.position.y) duration:1.6];
-    SKAction *moveLeft = [SKAction moveTo:CGPointMake(0, sprite.position.y) duration:1.6];
+    SKAction *moveRight = [SKAction moveTo:CGPointMake(screenSize.size.width - _block.size.width, sprite.position.y) duration:speed];
+    SKAction *moveLeft = [SKAction moveTo:CGPointMake(0, sprite.position.y) duration:speed];
     
     // Start left or right depending on blockStartPosition
     if (blockStartPosition == 0) {
@@ -187,11 +229,13 @@
 -(void)pause {
     // Pause the game scene
     self.view.paused = YES;
+    [self setUserInteractionEnabled:NO];
 }
 
 -(void)resume {
     // Resume game scene
     self.view.paused = NO;
+    [self setUserInteractionEnabled:YES];
 }
 
 @end

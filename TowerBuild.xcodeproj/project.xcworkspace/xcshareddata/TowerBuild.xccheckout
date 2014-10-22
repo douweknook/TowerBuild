@@ -14,7 +14,7 @@
 		<string>https://github.com/douweknook/TowerBuild.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TowerBuild.xcodeproj/project.xcworkspace</string>
+	<string>TowerBuild.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5F1C9836C8B6FB41B66FA419AC9158C1C5267C34</key>

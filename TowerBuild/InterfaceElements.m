@@ -14,7 +14,9 @@
 
 @implementation InterfaceElements{
     CGRect screenSize;
-    UIFont *font;
+    UIFont *fontTopScreen;
+    UIFont *fontGameOver;
+    UIFont *fontMenu;
 }
 
 -(CGRect)getScreenSize {
@@ -22,10 +24,21 @@
     return screenSize;
 }
 
--(UIFont *)getFont {
-    font = [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
-    return font;
+-(UIFont *)getFontTopScreen {
+    fontTopScreen = [UIFont fontWithName:@"HelveticaNeue" size:18.0f];
+    return fontTopScreen;
 }
+
+-(UIFont *)getFontGameOverScreen {
+    fontGameOver = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
+    return fontGameOver;
+}
+
+-(UIFont *)getFontMenu {
+    fontMenu = [UIFont fontWithName:@"HelveticaNeue" size:25.0f];
+    return fontMenu;
+}
+
 
 #pragma mark - Top screen elements
 
@@ -34,7 +47,7 @@
     // Pause Button
     UIButton *pauseButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
     [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-    [[pauseButton titleLabel] setFont:[self getFont]];
+    [[pauseButton titleLabel] setFont:[self getFontTopScreen]];
     [pauseButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [pauseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [pauseButton setCenter:CGPointMake(screenSize.size.width -50, 50)];
@@ -44,7 +57,7 @@
 -(UIButton *)createMenuButton {
     UIButton *menuButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
     [menuButton setTitle:@"Menu" forState:UIControlStateNormal];
-    [[menuButton titleLabel] setFont:[self getFont]];
+    [[menuButton titleLabel] setFont:[self getFontTopScreen]];
     [menuButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [menuButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [menuButton setCenter:CGPointMake(50, 50)];
@@ -56,7 +69,7 @@
     
     UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     [scoreLabel setTextAlignment:NSTextAlignmentCenter];
-    [scoreLabel setFont:[self getFont]];
+    [scoreLabel setFont:[self getFontTopScreen]];
     [scoreLabel setTextColor:[UIColor blackColor]];
     [scoreLabel setCenter:CGPointMake(screenSize.size.width/2, 50)];
     [scoreLabel setText:@"Score: 0"];
@@ -70,7 +83,7 @@
     
     UILabel *gameOverLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
     [gameOverLabel setTextAlignment:NSTextAlignmentCenter];
-    [gameOverLabel setFont:[self getFont]];
+    [gameOverLabel setFont:[self getFontGameOverScreen]];
     [gameOverLabel setTextColor:[UIColor blackColor]];
     [gameOverLabel setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 25)];
     [gameOverLabel setBackgroundColor:[UIColor whiteColor]];
@@ -87,10 +100,24 @@
     [playAgainButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [playAgainButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [playAgainButton setBackgroundColor:[UIColor whiteColor]];
-    [[playAgainButton titleLabel] setFont:[self getFont]];
+    [[playAgainButton titleLabel] setFont:[self getFontGameOverScreen]];
     [playAgainButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 25)];
     [playAgainButton setHidden:YES];
     return playAgainButton;
+}
+
+-(UIButton *)createShareScoreButton {
+    [self getScreenSize];
+    
+    UIButton *shareScoreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
+    [shareScoreButton setTitle:@"Share you score" forState:UIControlStateNormal];
+    [shareScoreButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [shareScoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [shareScoreButton setBackgroundColor:[UIColor whiteColor]];
+    [[shareScoreButton titleLabel] setFont:[self getFontGameOverScreen]];
+    [shareScoreButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 75)];
+    [shareScoreButton setHidden:YES];
+    return shareScoreButton;
 }
 
 -(UILabel *)createBestScoreLabel {
@@ -98,7 +125,7 @@
     
     UILabel *bestScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 25)];
     [bestScoreLabel setTextAlignment:NSTextAlignmentCenter];
-    [bestScoreLabel setFont:[self getFont]];
+    [bestScoreLabel setFont:[self getFontGameOverScreen]];
     [bestScoreLabel setTextColor:[UIColor blackColor]];
     [bestScoreLabel setCenter:CGPointMake(screenSize.size.width/2, 100)];
     [bestScoreLabel setBackgroundColor:[UIColor whiteColor]];
@@ -111,7 +138,7 @@
     
     UILabel *newHighscoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 25)];
     [newHighscoreLabel setTextAlignment:NSTextAlignmentCenter];
-    [newHighscoreLabel setFont:[self getFont]];
+    [newHighscoreLabel setFont:[self getFontGameOverScreen]];
     [newHighscoreLabel setTextColor:[UIColor greenColor]];
     [newHighscoreLabel setCenter:CGPointMake(screenSize.size.width/2, 150)];
     [newHighscoreLabel setBackgroundColor:[UIColor whiteColor]];
@@ -130,8 +157,8 @@
     [resumeButton setTitle:@"Resume" forState:UIControlStateNormal];
     [resumeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [resumeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [[resumeButton titleLabel] setFont:[self getFont]];
-    [resumeButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 100)];
+    [[resumeButton titleLabel] setFont:[self getFontMenu]];
+    [resumeButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 125)];
     return resumeButton;
 }
 
@@ -143,22 +170,22 @@
     [newGameButton setTitle:@"New Game" forState:UIControlStateNormal];
     [newGameButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [newGameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [[newGameButton titleLabel] setFont:[self getFont]];
+    [[newGameButton titleLabel] setFont:[self getFontMenu]];
     [newGameButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 - 50)];
     return newGameButton;
 }
 
--(UIButton *)createHighscoresButton {
+-(UIButton *)createSettingsButton {
     [self getScreenSize];
     
     // highscores button
-    UIButton *highscoresButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-    [highscoresButton setTitle:@"Highscores" forState:UIControlStateNormal];
-    [highscoresButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [highscoresButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [[highscoresButton titleLabel] setFont:[self getFont]];
-    [highscoresButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2)];
-    return highscoresButton;
+    UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+    [settingsButton setTitle:@"Settings" forState:UIControlStateNormal];
+    [settingsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[settingsButton titleLabel] setFont:[self getFontMenu]];
+    [settingsButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 25)];
+    return settingsButton;
 }
 
 -(UIButton *)createShareButton {
@@ -169,9 +196,51 @@
     [shareButton setTitle:@"Tell your friends" forState:UIControlStateNormal];
     [shareButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [[shareButton titleLabel] setFont:[self getFont]];
-    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 50)];
+    [[shareButton titleLabel] setFont:[self getFontMenu]];
+    [shareButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 100)];
     return shareButton;
+}
+
+#pragma mark - Settings buttons
+
+-(UIButton *)createEasyButton {
+    [self getScreenSize];
+    
+    UIButton *easyButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [easyButton setTitle:@"Easy" forState:UIControlStateNormal];
+    [easyButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [easyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[easyButton titleLabel] setFont:[self getFontGameOverScreen]];
+    [easyButton setCenter:CGPointMake(screenSize.size.width/2 - 100, screenSize.size.height/2 + 75)];
+    [easyButton setHidden:YES];
+    return easyButton;
+}
+
+-(UIButton *)createMediumButton {
+    [self getScreenSize];
+    
+    UIButton *mediumButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [mediumButton setTitle:@"Medium" forState:UIControlStateNormal];
+    [mediumButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [mediumButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[mediumButton titleLabel] setFont:[self getFontGameOverScreen]];
+    [mediumButton setCenter:CGPointMake(screenSize.size.width/2, screenSize.size.height/2 + 75)];
+    [mediumButton setHidden:YES];
+    return mediumButton;
+}
+
+-(UIButton *)createHardButton {
+    [self getScreenSize];
+    
+    UIButton *hardButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [hardButton setTitle:@"Hard" forState:UIControlStateNormal];
+    [hardButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [hardButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [[hardButton titleLabel] setFont:[self getFontGameOverScreen]];
+    [hardButton setCenter:CGPointMake(screenSize.size.width/2 + 100, screenSize.size.height/2 + 75)
+     ];
+    [hardButton setHidden:YES];
+    return hardButton;
 }
 
 @end

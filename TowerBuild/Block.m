@@ -34,21 +34,27 @@ int colorPicker = 0;
     UIColor *color;
     switch (colorPicker) {
         case 0:
-            color = [UIColor greenColor];
+            color = [UIColor purpleColor];
             break;
         case 1:
-            color = [UIColor yellowColor];
-            break;
-        case 2:
             color = [UIColor blueColor];
             break;
+        case 2:
+            color = [UIColor greenColor];
+            break;
         case 3:
+            color = [UIColor yellowColor];
+            break;
+        case 4:
+            color = [UIColor orangeColor];
+            break;
+        case 5:
             color = [UIColor redColor];
             break;
         default:
             break;
     }
-    if (colorPicker == 3) {
+    if (colorPicker == 5) {
         colorPicker = 0;
     }
     else {

@@ -14,18 +14,27 @@
 #import "ViewController.h"
 
 @interface InterfaceElements : NSObject
-
+// Top screen elements
 -(UIButton *)createPauseButton;
 -(UIButton *)createMenuButton;
 -(UILabel *)createScoreLabel;
+
+// Game Over elements
 -(UILabel *)createGameOverLabel;
 -(UIButton *)createPlayAgainButton;
 -(UILabel *)createBestScoreLabel;
 -(UILabel *)createNewHighscoreLabel;
+-(UIButton *)createShareScoreButton;
 
+// Menu elements
 -(UIButton *)createResumeButton;
 -(UIButton *)createNewGameButton;
--(UIButton *)createHighscoresButton;
+-(UIButton *)createSettingsButton;
 -(UIButton *)createShareButton;
+
+// Settings buttons
+-(UIButton *)createEasyButton;
+-(UIButton *)createMediumButton;
+-(UIButton *)createHardButton;
 
 @end

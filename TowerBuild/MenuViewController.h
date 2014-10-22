@@ -11,6 +11,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
 #import "InterfaceElements.h"
 
 @interface MenuViewController : UIViewController <UIActionSheetDelegate>
