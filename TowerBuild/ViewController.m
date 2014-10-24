@@ -203,6 +203,7 @@
     [pauseButton setEnabled:YES];
     if (scene.view.paused == YES) {
         [scene resume];
+        [pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
     }
 }
 
